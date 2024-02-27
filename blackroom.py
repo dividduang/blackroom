@@ -40,6 +40,8 @@ class Blackroom(Plugin):
 
         
     def on_handle_context(self, e_context: EventContext):
+        if e_context['context'].type not in [ContextType.TEXT]:
+            return
         context = e_context['context']
         
         msg: ChatMessage = context['msg']
